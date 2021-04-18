@@ -58,32 +58,32 @@ var testNum = {
     'B':'팀플! 좋아좋아'
   },
   9:{
-    'title':'문제 1번',
-    'description':'문제설명 문제설명 문제설명',
+    'title':'문제 9번',
+    'description':'팀원들과 내 의견이 많이 다를 때',
     'type':'TF',
-    'A':'T',
-    'B':'F'
+    'A':'논리적으로 내 생각이 맞다는 걸 증명하자!',
+    'B':'내 의견을 상대방이 기분 나쁘지 않게 전달하는게 중요하지'
   },
   10:{
-    'title':'문제 1번',
-    'description':'문제설명 문제설명 문제설명',
+    'title':'문제 10번',
+    'description':'동기가 선배에게 혼나고 있다. "엉망진창이네! 이걸 이딴식으로 하면 어떻게?" 이때 나는?',
     'type':'JP',
-    'A':'J',
-    'B':'P'
+    'A':'동기가 더 혼나지 않게 좋은 정보들을 전달해준다.',
+    'B':'"어떻게 엉망진찬이란 말을?"라며 동기를 위로해준다.'
   },
   11:{
-    'title':'문제 1번',
-    'description':'문제설명 문제설명 문제설명',
+    'title':'문제 11번',
+    'description':'선배가 자꾸 사적으로 말을 건다',
     'type':'JP',
-    'A':'J',
-    'B':'P'
+    'A':'어색하고 부담스럽다. 자리를 피하고 싶다.',
+    'B':'쿵짝이 잘 맞아서 내 TMI 이야기를 마구 푼다.'
   },
   12:{
-    'title':'문제 1번',
-    'description':'문제설명 문제설명 문제설명',
+    'title':'문제 12번',
+    'description':'다사다난했던 나의 첫 출근의 끝자락! 퇴근하기 전 나는?',
     'type':'JP',
-    'A':'J',
-    'B':'P'
+    'A':'다음 날 TO DO 리스트를 정리하고 간다',
+    'B':'자리만 대충 정리하고 집으로 GO GO!'
   }
 }
 
@@ -123,7 +123,42 @@ function retry(){
   next();
 }
 
+// 카카오 스크립트 initialize.
+// init은 한번만 해야하므로 함수 밖에 추가
+Kakao.init("a8d74c802fd3ef2e828ea1bcaafa1e4d")
+
+function share(){
+  Kakao.Link.createDefaultButton({
+    container: '#share', // 공유하기의 id
+    objectType: 'feed', //카카오 sdk에 있는 공유 타입
+    content: {
+      title: 'MBTI result', //타이틀
+      description: '당신의 성격 유형은?', //설명
+      imageUrl: 'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+      link: {
+        webUrl: window.location.href,
+        mobileWebUrl: window.location.href
+      }
+    },
+    social: {
+      likeCount: 286,
+      commentCount: 45,
+      sharedCount: 845
+    },
+    buttons: [
+      {
+        title: 'Open!', //밑에 글자
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href
+        }
+      }
+    ]
+  });
+}
+
 document.querySelector('#run-btn').addEventListener('click',run);
+document.querySelector('#share').addEventListener('click',share);
 document.querySelector('#retry').addEventListener('click',retry);
 
 document.querySelector('#A').addEventListener('click',function(){
