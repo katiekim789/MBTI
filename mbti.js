@@ -147,7 +147,7 @@ function share(){
     },
     buttons: [
       {
-        title: '테스트 결과 확인하기', //밑에 글자
+        title: '테스트하러 가기', //밑에 글자
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href
