@@ -132,9 +132,9 @@ function share(){
     container: '#share', // 공유하기의 id
     objectType: 'feed', //카카오 sdk에 있는 공유 타입
     content: {
-      title: 'MBTI result', //타이틀
-      description: '당신의 성격 유형은?', //설명
-      imageUrl: 'http://mud-kage.kakao.co.kr/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+      title: '나의 회사생활 직장인 유형은?', //타이틀
+      description: '직장에서 살아남기 위한 당신의 모습이 궁금하다면?', //설명
+      imageUrl: 'http://imagescdn.gettyimagesbank.com/500/202005/jv12022343.jpg',
       link: {
         webUrl: window.location.href,
         mobileWebUrl: window.location.href
@@ -147,7 +147,7 @@ function share(){
     },
     buttons: [
       {
-        title: 'Open!', //밑에 글자
+        title: '테스트 결과 확인하기', //밑에 글자
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href
